@@ -16,7 +16,6 @@ const fontSans = FontSans({
   variable: "--font-sans",
 });
 
-// Font files can be colocated inside of `pages`
 const fontHeading = localFont({
   src: "../assets/fonts/CalSans-SemiBold.woff2",
   variable: "--font-heading",
@@ -34,12 +33,7 @@ export const metadata = {
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
-  authors: [
-    {
-      name: siteConfig.authorName,
-      url: siteConfig.url,
-    },
-  ],
+  authors: [{ name: siteConfig.authorName, url: siteConfig.url }],
   creator: siteConfig.username,
   openGraph: {
     type: "website",
@@ -48,27 +42,13 @@ export const metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: siteConfig.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: siteConfig.name }],
     creator: `@${siteConfig.username}`,
   },
   icons: {
@@ -77,18 +57,11 @@ export const metadata = {
     apple: siteConfig.logoIcon,
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-  alternates: {
-    canonical: siteConfig.url,
-  },
+  alternates: { canonical: siteConfig.url },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
@@ -96,10 +69,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID;
-  if (!GA_ID) {
-    throw new Error("Missing Google Analytics ID");
-  }
+  const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID ?? null;
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -115,23 +85,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
           attribute="class"
           defaultTheme="system"
           enableSystem
-          themes={[
-            "light",
-            "dark",
-            "retro",
-            "cyberpunk",
-            "paper",
-            "aurora",
-            "synthwave",
-          ]}
+          themes={["light", "dark", "retro", "cyberpunk", "paper", "aurora", "synthwave"]}
         >
           {children}
           <Analytics />
           <Toaster />
           <ModalProvider />
         </ThemeProvider>
+
+        {/* Render GA only if the ID is set */}
+        {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
       </body>
-      <GoogleAnalytics gaId={GA_ID} />
     </html>
   );
 }

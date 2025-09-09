@@ -35,8 +35,7 @@ export const experiences: ExperienceInterface[] = [
     "Marazita, Z., & Parkinson, M. (in preparation). Passenger perceptions of seating sufficiency, comfort, and acceptability...",
     "Marazita, Z., Menold, J., & Parkinson, M. (in preparation). An AI-based tool for multivariate design...",
   ],
-  achievements: [], // ✅ add this to avoid .map errors
-  skills: ["R", "Solidworks", "Python", "Data synthesis", "MATLAB", "Motion Capture"],
+  skills: ["R", "Solidworks","Python","Data synthesis","MATLAB","Motion Capture"],
   companyUrls: [
     { label: "THRED Lab", url: "https://www.thred.group/" },
     { label: "OPEN Design Lab", url: "https://www.openlab.psu.edu/" },

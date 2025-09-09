@@ -1,10 +1,11 @@
 import Image from "next/image";
 import PageHeader from "@/components/common/page-header";
 
-export const metadata = {
-  title: "About Me",
-  description: "Learn more about Zoe Marazita — interests, leadership, and awards.",
-};
+<PageHeader
+  title="About Me"
+  description="A little more about my background, interests, and what I&rsquo;ve been up to outside of class and research."
+/>
+
 
 export default function AboutPage() {
   return (
@@ -50,9 +51,9 @@ export default function AboutPage() {
 
       {/* Bio + hobbies */}
       <section className="prose dark:prose-invert max-w-none mb-10">
-        <h2>Hi, I’m Zoe</h2>
+        <h2>Hi, I&apos;m Zoe</h2>
         <p>
-          I'm a Mechanical Engineering PhD student at Penn State, where my research focuses on ergonomics, inclusive design, and developing AI-driven tools that translate human data into better products. Outside of work, I love spending time backpacking, running, baking, and building things in the makerspace.
+          I&apos;m a Mechanical Engineering PhD student at Penn State, where my research focuses on ergonomics, inclusive design, and developing AI-driven tools that translate human data into better products. Outside of work, I love spending time backpacking, running, baking, and building things in the makerspace.
         </p>
       </section>
 
