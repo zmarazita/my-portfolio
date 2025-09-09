@@ -9,27 +9,15 @@ interface SocialInterface {
 
 export const SocialLinks: SocialInterface[] = [
   {
-    name: "Github",
-    username: "@namanbarkiya",
-    icon: Icons.gitHub,
-    link: "https://github.com/namanbarkiya",
-  },
-  {
     name: "LinkedIn",
-    username: "Naman Barkiya",
+    username: "Zoe Marazita",
     icon: Icons.linkedin,
-    link: "https://www.linkedin.com/in/namanbarkiya",
+    link: "https://www.linkedin.com/in/zmarazita/",
   },
   {
-    name: "Twitter",
-    username: "@namanbarkiya",
-    icon: Icons.twitter,
-    link: "https://twitter.com/namanbarkiya",
-  },
-  {
-    name: "Gmail",
-    username: "naman.barkiya02",
-    icon: Icons.gmail,
-    link: "mailto:naman.barkiya02@gmail.com",
+    name: "Contact",
+    username: "zvmarazita@gmail.com",
+    icon: Icons.gmail, // shows an email icon (from your Icons component)
+    link: "mailto:zvmarazita@gmail.com",
   },
 ];

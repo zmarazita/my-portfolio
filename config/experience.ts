@@ -8,85 +8,120 @@ export interface ExperienceInterface {
   startDate: Date;
   endDate: Date | "Present";
   description: string[];
-  achievements: string[];
+  achievements?: string[];
+  publications?: string[];
   skills: ValidSkills[];
-  companyUrl?: string;
+  companyUrl?: string; // ✅ keep for single-company roles
+  companyUrls?: { label: string; url: string }[]; // ✅ for multi-lab roles
   logo?: string;
 }
 
+
+
+
 export const experiences: ExperienceInterface[] = [
-  {
-    id: "ubs",
-    position: "Software Development Engineer",
-    company: "UBS",
-    location: "Mumbai, India",
-    startDate: new Date("2024-08-01"),
-    endDate: "Present",
-    description: [
-      "Contributing to the P&L dashboard used by traders and senior stakeholders.",
-      "Leading the migration of the UI from Kendo to UBS's internal design system.",
-      "Building a daily FX rate fetcher by integrating Databricks jobs with backend services.",
-    ],
-    achievements: [
-      "Delivered production code within 1 month of joining by contributing to the P&L dashboard used by traders and senior stakeholders.",
-      "Led the migration of the UI from Kendo to UBS's internal design system, improving frontend consistency and performance.",
-      "Built a daily FX rate fetcher by integrating Databricks jobs (Python, Spark SQL) with backend services (Java), automating exchange rate updates.",
-      "Won UBS's internal AI Venture Challenge by developing data transformation pipelines and anomaly detection models on trading datasets.",
-      "Collaborated closely with product owners and designers for user-centric features, improving usability and trader workflows.",
-    ],
-    skills: ["Typescript", "React", "Databricks", "Java", "Python"],
-    companyUrl: "https://www.ubs.com",
-    logo: "/logo.png",
-  },
-  {
-    id: "agentprod",
-    position: "Software Development Intern",
-    company: "Agentprod LLP",
-    location: "Bengaluru, India",
-    startDate: new Date("2023-10-01"),
-    endDate: new Date("2024-03-01"),
-    description: [
-      "Built backend for AI-driven chatbots using LLMs (GPT-4, Llama-2).",
-      "Developed APIs and integrated Slack, Google Workspace, and HubSpot automations.",
-      "Deployed ML models on AWS SageMaker instead of Replicate.",
-    ],
-    achievements: [
-      "Built backend for AI-driven chatbots using LLMs (GPT-4, Llama-2), improving function call accuracy by 40%.",
-      "Developed APIs and integrated Slack, Google Workspace, and HubSpot automations via FastAPI.",
-      "Deployed ML models on AWS SageMaker instead of Replicate, cutting load times by 30%.",
-      "Created a Next.js dashboard for user analytics.",
-    ],
-    skills: ["Next.js", "React", "Node.js", "AWS", "MongoDB", "Typescript"],
-    companyUrl: "https://agentprod.com",
-    logo: "/experience/agentprod-logo.png",
-  },
-  {
-    id: "builtdesign",
-    position: "Web Developer Intern",
-    company: "Builtdesign",
-    location: "Nagpur, India",
-    startDate: new Date("2021-07-01"),
-    endDate: new Date("2022-07-01"),
-    description: [
-      "Developed websites using React, Angular, and GraphQL.",
-      "Set up AWS servers and CI/CD pipelines.",
-      "Built a multi-page PDF reader for large files (>300MB).",
-    ],
-    achievements: [
-      "Developed websites using React, Angular, and GraphQL; reduced API load time by 30%.",
-      "Set up AWS servers and CI/CD pipelines, scaling traffic to 3,000+ users/day.",
-      "Built a multi-page PDF reader for large files (>300MB) to boost user engagement.",
-    ],
-    skills: [
-      "React",
-      "Angular",
-      "GraphQL",
-      "AWS",
-      "HTML 5",
-      "CSS 3",
-      "Javascript",
-    ],
-    companyUrl: "https://builtdesign.in",
-    logo: "/experience/builtdesign-logo.png",
-  },
-];
+{
+  id: "psu",
+  position: "Graduate Research Assistant",
+  company: "OPEN Design Lab and THRED Lab at Penn State",
+  location: "State College, PA",
+  startDate: new Date("2024-08-01"),
+  endDate: "Present",
+  description: [
+    "Modeling and simulation of anthropometric data to create more ergonomic, inclusive, and accessible products."
+  ],
+  publications: [
+    "Marazita, Z., Chang, M., & Parkinson, M. (2025). Quantifying the spatial requirements of seated individuals. International Journal of Industrial Ergonomics. (under review)",
+    "Marazita, Z., & Parkinson, M. (in preparation). Passenger perceptions of seating sufficiency, comfort, and acceptability...",
+    "Marazita, Z., Menold, J., & Parkinson, M. (in preparation). An AI-based tool for multivariate design...",
+  ],
+  achievements: [], // ✅ add this to avoid .map errors
+  skills: ["R", "Solidworks", "Python", "Data synthesis", "MATLAB", "Motion Capture"],
+  companyUrls: [
+    { label: "THRED Lab", url: "https://www.thred.group/" },
+    { label: "OPEN Design Lab", url: "https://www.openlab.psu.edu/" },
+  ],
+  logo: "/experience/psu.png",
+},
+{
+  id: "apple-2024",
+  position: "Product Design Analyst Intern",
+  company: "Apple Inc.",
+  location: "Sunnyvale, CA",
+  startDate: new Date("2024-05"),
+  endDate: new Date("2024-08"),
+  description: [
+    "Focused on experimental ergonomics, user research, and anthropometric analysis to guide inclusive hardware sizing and design decisions."
+  ],
+  achievements: [
+    "Led anthropometric landmark analysis and designed experimental hardware with the biomechanics team to inform sizing, shape, SKU-count, and accommodation (patent pending)",
+    "Designed and executed user studies to evaluate product accommodation, with emphasis on outlier populations",
+    "Selected to present findings to Mike Rockwell, VP of Vision Products",
+  ],
+  skills: ["Python", "Grasshopper", "Siemens NX", "Rapid prototyping", "JMP"],
+  companyUrl: "https://apple.com",
+  logo: "/experience/apple.png", // Apple icon
+},
+{
+  id: "apple-2022",
+  position: "Product Design Intern",
+  company: "Apple Inc.",
+  location: "Sunnyvale, CA",
+  startDate: new Date("2022-05"),
+  endDate: new Date("2022-08"),
+  description: [
+    "Developed ergonomic hardware innovation for VisionPro through mechanism design, prototyping, and user-centered evaluation",
+  ],
+  achievements: [
+    "Improved ergonomics via mechanism design to accommodate diverse populations (patent pending)",
+    "Built and tested iterative prototypes using rapid prototyping techniques",
+    "Conducted user studies to down-select over 15 mechanism concepts",
+    "Created an adaptable user-study buck for evaluating new hardware design features",
+    "Selected out of 15 interns to present findings to Mike Rockwell, Head of TDG",
+  ],
+  skills: ["Siemens NX", "Rapid prototyping"],
+  companyUrl: "https://apple.com",
+  logo: "/experience/apple.png", // Apple icon again
+},
+{
+  id: "solar-turbines",
+  position: "Mechanical Engineering Intern",
+  company: "Solar Turbines (Caterpillar Inc.)",
+  location: "San Diego, CA",
+  startDate: new Date("2023-05"),
+  endDate: new Date("2023-08"),
+  description: [
+    "Led cost reduction and performance optimization of turbine components through simulation-driven design",
+  ],
+  achievements: [
+    "Reduced cost and improved the design of the Titan 250 Inter-Stage Duct",
+    "Optimized material selection using thermal and structural simulations in Ansys FEA",
+    "Lowered machining costs by eliminating seal strips and redesigning the duct as a non-segmented ring",
+    "Increased efficiency of the Titan 250 test cell via process optimization techniques",
+  ],
+  skills: ["Ansys", "Creo"],
+  companyUrl: "https://www.solarturbines.com/en_US.html",
+  logo: "/experience/cat.png", // CAT icon
+},
+
+{
+  id: "Learning-factory",
+  position: "Makerspace Teaching Assistant",
+  company: "Learning Factory at Penn State",
+  location: "State College, PA",
+  startDate: new Date("2024-08"),
+  endDate: "Present",
+  description: [
+    "Managing equipment, training students, and leading hands-on workshops at the makerspace",
+  ],
+  achievements: [
+    "Supervised and maintained woodshop and laser cutter operations in the makerspace",
+    "Repaired machines, ordered supplies, and maintained inventory management for the shop",
+    "Trained students and researchers on safe and effective use of makerspace tools",
+    "Led build nights in the woodshop, teaching participants how to design and build projects",
+  ],
+  skills: ["CNC Routing", "Lathe","Mill","3D printing","Laser cutting","Textiles","Welding"],
+  companyUrl: "https://lf.psu.edu/",
+  logo: "/experience/LF.jpeg", // CAT icon
+},
+]

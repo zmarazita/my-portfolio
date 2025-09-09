@@ -23,7 +23,6 @@ export const pagesConfig: PagesConfig = {
   },
   skills: {
     title: "Skills",
-    description: "Key skills that define my professional identity.",
     metadata: {
       title: "Skills",
       description:
@@ -32,7 +31,6 @@ export const pagesConfig: PagesConfig = {
   },
   projects: {
     title: "Projects",
-    description: "Showcasing impactful projects and technical achievements.",
     metadata: {
       title: "Projects",
       description: "Naman Barkiya's projects in building web applications.",
@@ -46,13 +44,12 @@ export const pagesConfig: PagesConfig = {
       description: "Contact Naman Barkiya.",
     },
   },
-  contributions: {
-    title: "Contributions",
-    description: "Open-source contributions and community involvement.",
+  about: {
+    title: "About Me",
+    description: "A quick intro to who I am and what I do.",
     metadata: {
-      title: "Contributions",
-      description:
-        "Naman Barkiya's open-source contributions and community involvement.",
+      title: "About",
+      description: "About Zoe Marazita.",
     },
   },
   resume: {

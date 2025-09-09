@@ -41,9 +41,7 @@ export async function generateMetadata({
   const experience = experiences.find((c) => c.id === params.expId);
 
   if (!experience) {
-    return {
-      title: "Experience Not Found",
-    };
+    return { title: "Experience Not Found" };
   }
 
   return {
@@ -59,10 +57,15 @@ export default function ExperienceDetailPage({
   params,
 }: ExperienceDetailPageProps) {
   const experience = experiences.find((c) => c.id === params.expId);
+  if (!experience) redirect("/experience");
 
-  if (!experience) {
-    redirect("/experience");
-  }
+  // ✅ Handle either publications or achievements
+  const pubs = experience.publications ?? [];
+  const achs = experience.achievements ?? [];
+  const hasPubs = pubs.length > 0;
+  const hasAchs = achs.length > 0;
+  const listLabel = hasPubs ? "Publications" : hasAchs ? "Achievements" : null;
+  const listItems = hasPubs ? pubs : hasAchs ? achs : [];
 
   const tabItems = [
     {
@@ -89,30 +92,35 @@ export default function ExperienceDetailPage({
         </AnimatedSection>
       ),
     },
-    {
-      value: "achievements",
-      label: "Achievements",
-      content: (
-        <AnimatedSection delay={0.3}>
-          <div>
-            <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
-              Key Achievements
-            </h3>
-            <ul className="space-y-3">
-              {experience.achievements.map((achievement, idx) => (
-                <li
-                  key={idx}
-                  className="text-base leading-relaxed flex items-start gap-3"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  {achievement}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </AnimatedSection>
-      ),
-    },
+    // Only include this tab if we have pubs or achs
+    ...(listLabel
+      ? [
+          {
+            value: "pubs-or-achs",
+            label: listLabel,
+            content: (
+              <AnimatedSection delay={0.3}>
+                <div>
+                  <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
+                    {listLabel}
+                  </h3>
+                  <ul className="space-y-3">
+                    {listItems.map((item, idx) => (
+                      <li
+                        key={idx}
+                        className="text-base leading-relaxed flex items-start gap-3"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedSection>
+            ),
+          },
+        ]
+      : []),
     {
       value: "skills",
       label: "Skills",
@@ -122,7 +130,7 @@ export default function ExperienceDetailPage({
             <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
               Technologies & Skills
             </h3>
-            <ChipContainer textArr={experience.skills} />
+            <ChipContainer textArr={experience.skills as string[]} />
             <p className="mt-4 text-sm text-muted-foreground">
               These are the primary technologies and skills utilized during my
               time at {experience.company}.
@@ -166,10 +174,33 @@ export default function ExperienceDetailPage({
                       <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
                         {experience.position}
                       </h1>
-                      <div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
+
+                      {/* Company + (optional) single URL */}
+                      <div className="flex items-center justify-center sm:justify-start gap-2 mb-2 flex-wrap">
                         <span className="text-md font-medium text-muted-foreground">
                           {experience.company}
                         </span>
+
+                        {/* If you have multiple lab links via companyUrls */}
+                        {(experience as any).companyUrls?.map(
+                          (c: { label: string; url: string }, i: number) => (
+                            <a
+                              key={i}
+                              href={c.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+                              aria-label={`Open ${c.label} website`}
+                            >
+                              <Icons.externalLink className="w-4 h-4" />
+                              <span className="underline underline-offset-2">
+                                {c.label}
+                              </span>
+                            </a>
+                          )
+                        )}
+
+                        {/* Or fall back to a single companyUrl if present */}
                         {experience.companyUrl && (
                           <a
                             href={experience.companyUrl}
@@ -181,6 +212,7 @@ export default function ExperienceDetailPage({
                           </a>
                         )}
                       </div>
+
                       <p className="text-muted-foreground">
                         {experience.location}
                       </p>
@@ -188,10 +220,7 @@ export default function ExperienceDetailPage({
                   </div>
                   <div className="flex justify-center sm:justify-end">
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
-                      {getDurationText(
-                        experience.startDate,
-                        experience.endDate
-                      )}
+                      {getDurationText(experience.startDate, experience.endDate)}
                     </span>
                   </div>
                 </div>
@@ -199,7 +228,10 @@ export default function ExperienceDetailPage({
             </CardHeader>
 
             <CardContent>
-              <ResponsiveTabs items={tabItems} defaultValue="summary" />
+              <ResponsiveTabs
+                items={tabItems}
+                defaultValue="summary"
+              />
             </CardContent>
           </Card>
         </AnimatedSection>

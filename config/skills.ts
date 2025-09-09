@@ -3,163 +3,72 @@ import { Icons } from "@/components/common/icons";
 export interface skillsInterface {
   name: string;
   description: string;
-  rating: number;
   icon: any;
 }
 
+// ✨ Your custom skills
 export const skillsUnsorted: skillsInterface[] = [
   {
-    name: "Next.js",
-    description:
-      "Effortlessly build dynamic apps with routing, layouts, loading UI, and API routes.",
-    rating: 5,
-    icon: Icons.nextjs,
+    name: "Python",
+    description: "Programming language for data analysis, automation, and machine learning.",
+    icon: Icons.python, // you may need to define this in icons.tsx
   },
   {
-    name: "React",
-    description:
-      "Craft interactive user interfaces using components, state, props, and virtual DOM.",
-    rating: 5,
-    icon: Icons.react,
+    name: "R",
+    description: "Statistical computing and graphics for data analysis and visualization.",
+    icon: Icons.r, // may need to add
   },
   {
-    name: "GraphQL",
-    description:
-      "Fetch data precisely with a powerful query language for APIs and runtime execution.",
-    rating: 4,
-    icon: Icons.graphql,
+    name: "MATLAB",
+    description: "Numerical computing environment for matrix operations, simulations, and modeling.",
+    icon: Icons.matlab, // may need to add
   },
   {
-    name: "Nest.js",
-    description:
-      "Create scalable and modular applications with a progressive Node.js framework.",
-    rating: 4,
-    icon: Icons.nestjs,
+    name: "SolidWorks",
+    description: "3D CAD software for parametric modeling and engineering design.",
+    icon: Icons.solidworks, // add in icons.tsx
   },
   {
-    name: "express.js",
-    description:
-      "Build web applications and APIs quickly using a fast, unopinionated Node.js framework.",
-    rating: 5,
-    icon: Icons.express,
+    name: "Siemens NX",
+    description: "Integrated CAD/CAM/CAE software for advanced product development.",
+    icon: Icons.nx, // add in icons.tsx
   },
   {
-    name: "Node.js",
-    description:
-      "Run JavaScript on the server side, enabling dynamic and responsive applications.",
-    rating: 5,
-    icon: Icons.nodejs,
+    name: "Grasshopper",
+    description: "Visual programming language for Rhino used in generative design.",
+    icon: Icons.grasshopper, // add in icons.tsx
   },
   {
-    name: "MongoDB",
-    description:
-      "Store and retrieve data seamlessly with a flexible and scalable NoSQL database.",
-    rating: 5,
-    icon: Icons.mongodb,
+    name: "Creo",
+    description: "Parametric CAD software for mechanical design and simulation.",
+    icon: Icons.creo, // add in icons.tsx
   },
   {
-    name: "Typescript",
-    description:
-      "Enhance JavaScript with static types, making code more understandable and reliable.",
-    rating: 5,
-    icon: Icons.typescript,
+    name: "Onshape",
+    description: "Cloud-native CAD platform for collaborative design.",
+    icon: Icons.onshape, // add in icons.tsx
   },
   {
-    name: "Javascript",
-    description:
-      "Create interactive and dynamic web experiences with the versatile scripting language.",
-    rating: 5,
-    icon: Icons.javascript,
+    name: "Fusion 360",
+    description: "CAD, CAM, and CAE tool for product design and manufacturing.",
+    icon: Icons.fusion, // add in icons.tsx
   },
   {
-    name: "HTML 5",
-    description:
-      "Structure web content beautifully with the latest version of HyperText Markup Language.",
-    rating: 4,
-    icon: Icons.html5,
+    name: "Rhino",
+    description: "3D modeling software specializing in freeform surfaces.",
+    icon: Icons.rhino, // add in icons.tsx
   },
   {
-    name: "CSS 3",
-    description:
-      "Style web pages creatively with the latest iteration of Cascading Style Sheets.",
-    rating: 4,
-    icon: Icons.css3,
+    name: "ANSYS FEA",
+    description: "Finite element analysis for structural, thermal, and multiphysics simulations.",
+    icon: Icons.ansys, // add in icons.tsx
   },
   {
-    name: "React Native",
-    description:
-      "Develop cross-platform mobile apps using React for consistent and engaging experiences.",
-    rating: 4,
-    icon: Icons.react,
-  },
-  {
-    name: "Angular",
-    description:
-      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
-    rating: 3,
-    icon: Icons.angular,
-  },
-  {
-    name: "Redux",
-    description:
-      "Manage app state effectively using a predictable and centralized state container.",
-    rating: 4,
-    icon: Icons.redux,
-  },
-  {
-    name: "Socket.io",
-    description:
-      "Enable real-time, bidirectional communication between clients and servers effortlessly.",
-    rating: 3,
-    icon: Icons.socketio,
-  },
-  {
-    name: "Material UI",
-    description:
-      "Create stunning and responsive UIs with a popular React UI framework.",
-    rating: 4,
-    icon: Icons.mui,
-  },
-
-  {
-    name: "Tailwind CSS",
-    description:
-      "Design beautiful, modern websites faster with a utility-first CSS framework.",
-    rating: 5,
-    icon: Icons.tailwindcss,
-  },
-  {
-    name: "AWS",
-    description:
-      "Utilize Amazon Web Services to build and deploy scalable, reliable, and secure applications.",
-    rating: 3,
-    icon: Icons.amazonaws,
-  },
-  {
-    name: "Bootstrap",
-    description:
-      "Quickly create responsive and appealing web designs using a popular CSS framework.",
-    rating: 2,
-    icon: Icons.bootstrap,
-  },
-  {
-    name: "MySQL",
-    description:
-      "Manage and organize relational databases efficiently for data-driven applications.",
-    rating: 2,
-    icon: Icons.mysql,
-  },
-  {
-    name: "Netlify",
-    description:
-      "Manage and organize relational databases efficiently for data-driven applications.",
-    rating: 4,
-    icon: Icons.netlify,
+    name: "JMP",
+    description: "Statistical software for exploratory data analysis and visualization.",
+    icon: Icons.jmp, // add in icons.tsx
   },
 ];
 
-export const skills = skillsUnsorted
-  .slice()
-  .sort((a, b) => b.rating - a.rating);
-
+export const skills = skillsUnsorted;
 export const featuredSkills = skills.slice(0, 6);

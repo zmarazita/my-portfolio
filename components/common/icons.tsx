@@ -65,7 +65,87 @@ import {
   SiTailwindcss,
   SiTwitter,
   SiTypescript,
+  SiPython,
+  SiR,
+  SiAnsys,       // ✅ available
+  SiAutodesk,    // (use for Fusion 360, since F360 itself isn’t in SimpleIcons)
+  SiRhinoceros,  // Rhino
 } from "react-icons/si";
+
+const SolidworksIcon = (props: any) => (
+  <img
+    src="/icons/solidworks.svg"
+    alt="Solidworks"
+    className="w-16 h-16"
+    {...props}
+  />
+);
+
+
+const CreoIcon = (props: any) => (
+  <img
+    src="/icons/creo.svg"
+    alt="Creo"
+    className="w-16 h-16"
+    {...props}
+  />
+);
+
+const GrasshopperIcon = (props: any) => (
+  <img
+    src="/icons/grasshopper.png"
+    alt="Grasshopper"
+    className="w-16 h-16"
+    {...props}
+  />
+);
+
+// JMP
+const JmpIcon = (props: any) => (
+  <img
+    src="/icons/jmp.png"
+    alt="JMP"
+    className="w-16 h-16"
+    {...props}
+  />
+);
+
+// NX
+const NXIcon = (props: any) => (
+  <img
+    src="/icons/nx.svg"
+    alt="Siemens NX"
+    className="w-16 h-16"
+    {...props}
+  />
+);
+
+const MatlabIcon = (props: any) => (
+  <img
+    src="/icons/matlab.png"   
+    alt="MATLAB"
+    className="w-16 h-16"
+    {...props}
+  />
+);
+
+const OnshapeIcon = (props: any) => (
+  <img
+    src="/icons/onshape.png"   
+    alt="Onshape"
+    className="w-16 h-16"
+    {...props}
+  />
+);
+
+const RIcon = (props: any) => (
+  <img
+    src="/icons/r.svg"   
+    alt="R"
+    className="w-16 h-16"
+    {...props}
+  />
+);
 
 export const Icons = {
   contact: Phone,
@@ -89,6 +169,7 @@ export const Icons = {
   arrowRight: ArrowRight,
   help: HelpCircle,
   pizza: Pizza,
+  resume: FileText,
   sun: SunMedium,
   moon: Moon,
   laptop: Laptop,
@@ -124,6 +205,18 @@ export const Icons = {
   gmail: SiGmail,
   twitter: SiTwitter,
   linkedin: SiLinkedin,
+  python: SiPython,
+  r: RIcon,
+  matlab: MatlabIcon,
+  solidworks: SolidworksIcon, // your custom inline component
+  nx: NXIcon,                 // custom
+  creo: CreoIcon,             // custom
+  onshape: OnshapeIcon,
+  fusion: SiAutodesk,        // stand-in for Fusion 360
+  rhino: SiRhinoceros,
+  grasshopper: GrasshopperIcon, // custom
+  ansys: SiAnsys,
+  jmp: JmpIcon,                 // custom
   userFill: BiSolidUser,
   work: HiBriefcase,
   gitHub: ({ ...props }: LucideProps) => (
