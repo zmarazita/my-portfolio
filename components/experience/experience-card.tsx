@@ -48,6 +48,9 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
     ? "Achievements"
     : null;
 
+  // Safe guard for optional companyUrls
+  const urls = experience.companyUrls ?? [];
+
   return (
     <div className="group relative overflow-hidden rounded-lg border bg-background p-4 sm:p-6 transition-all duration-300">
       <div className="flex items-start gap-3 sm:gap-4">
@@ -74,10 +77,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
 
             <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-sm text-muted-foreground">
               <span className="font-medium">
-                {/* If multiple lab/company URLs exist */}
-                {experience.companyUrls?.length ? (
+                {/* Multiple lab/company URLs */}
+                {urls.length > 0 ? (
                   <>
-                    {experience.companyUrls.map((c, i) => (
+                    {urls.map((c, i) => (
                       <React.Fragment key={i}>
                         <a
                           href={c.url}
@@ -87,12 +90,12 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
                         >
                           {c.label}
                         </a>
-                        {i < experience.companyUrls.length - 1 && <span>, </span>}
+                        {i < urls.length - 1 && <span>, </span>}
                       </React.Fragment>
                     ))}
                   </>
                 ) : experience.companyUrl ? (
-                  // If only one URL
+                  // Single URL
                   <a
                     href={experience.companyUrl}
                     target="_blank"
@@ -102,14 +105,13 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
                     {experience.company}
                   </a>
                 ) : (
-                  // If no URL
+                  // No URL
                   experience.company
                 )}
               </span>
               <span className="hidden sm:inline">•</span>
               <span>{experience.location}</span>
             </div>
-
 
             {/* Duration pill */}
             <div className="flex items-center gap-2 mt-1">
