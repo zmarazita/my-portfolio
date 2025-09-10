@@ -13,28 +13,33 @@ import { cn, formatDateFromObj } from "@/lib/utils";
 import profileImg from "@/public/ProfilePic.jpg";
 
 interface ProjectPageProps {
-  params: {
-    projectId: string;
-  };
+  params: { projectId: string };
 }
 
-// helper to safely turn anything into a Date
-const toDate = (d: any) => {
-  const dt = d instanceof Date ? d : new Date(d);
-  return isNaN(dt.getTime()) ? null : dt;
+// Robust date parser with type guards
+const toValidDate = (v: unknown): Date | null => {
+  if (!v) return null;
+  if (v instanceof Date) return isNaN(v.getTime()) ? null : v;
+  if (typeof v === "string") {
+    const d = new Date(v);
+    return isNaN(d.getTime()) ? null : d;
+  }
+  return null;
 };
 
 export default function Project({ params }: ProjectPageProps) {
-  const project = Projects.find((val) => val.id === params.projectId);
-  if (!project) {
-    redirect("/projects");
-  }
+  const project = Projects.find((p) => p.id === params.projectId);
+  if (!project) redirect("/projects");
 
-  const startDt = project?.startDate ? toDate(project.startDate) : null;
-  const endDt =
-    project?.endDate && project.endDate !== "Present"
-      ? toDate(project.endDate)
-      : null;
+  // Start date
+  const startDt = toValidDate((project as any).startDate);
+
+  // End date: treat literal "Present" as ongoing (null date)
+  let endDt: Date | null = null;
+  const rawEnd = (project as any).endDate as unknown;
+  if (rawEnd !== "Present") {
+    endDt = toValidDate(rawEnd);
+  }
 
   return (
     <article className="container relative max-w-3xl py-6 lg:py-10">
@@ -50,19 +55,20 @@ export default function Project({ params }: ProjectPageProps) {
       </Link>
 
       <div>
-        {/* date block */}
+        {/* Dates */}
         {startDt && (
           <time
             dateTime={startDt.toISOString()}
             className="block text-sm text-muted-foreground"
           >
             {formatDateFromObj(startDt)}
-            {project?.endDate
+            {rawEnd
               ? ` – ${endDt ? formatDateFromObj(endDt) : "Present"}`
               : ""}
           </time>
         )}
 
+        {/* Title + external links */}
         <h1 className="flex items-center justify-between mt-2 font-heading text-4xl leading-tight lg:text-5xl">
           {project.companyName}
           <div className="flex items-center">
@@ -76,17 +82,19 @@ export default function Project({ params }: ProjectPageProps) {
             {project.websiteLink && (
               <CustomTooltip text="Open project website.">
                 <Link href={project.websiteLink} target="_blank">
-                  <Icons.externalLink className="w-6 ml-4 text-muted-foreground hover:text-foreground " />
+                  <Icons.externalLink className="w-6 ml-4 text-muted-foreground hover:text-foreground" />
                 </Link>
               </CustomTooltip>
             )}
           </div>
         </h1>
 
+        {/* Categories */}
         {project.category?.length ? (
           <ChipContainer textArr={project.category} />
         ) : null}
 
+        {/* Author blurb */}
         <div className="mt-4 flex space-x-4">
           <Link
             href={siteConfig.links?.Linkedin ?? "/"}
@@ -94,7 +102,7 @@ export default function Project({ params }: ProjectPageProps) {
           >
             <Image
               src={profileImg}
-              alt={"Zoe Marazita"}
+              alt="Zoe Marazita"
               width={42}
               height={42}
               className="rounded-full bg-background"
@@ -109,6 +117,7 @@ export default function Project({ params }: ProjectPageProps) {
         </div>
       </div>
 
+      {/* Hero image */}
       {project.companyLogoImg && (
         <Image
           src={project.companyLogoImg}
@@ -120,13 +129,13 @@ export default function Project({ params }: ProjectPageProps) {
         />
       )}
 
-      {/* Engineering Skills section (renamed from Tech Stack) */}
-      {project.skillsApplied?.length ? (
+      {/* Engineering Skills (formerly Tech Stack) */}
+      {(project as any).skillsApplied?.length ? (
         <div className="mb-7">
           <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-2">
             Engineering Skills Applied
           </h2>
-          <ChipContainer textArr={project.skillsApplied} />
+          <ChipContainer textArr={(project as any).skillsApplied} />
         </div>
       ) : null}
 
@@ -143,7 +152,7 @@ export default function Project({ params }: ProjectPageProps) {
         </div>
       )}
 
-      {/* Pages / gallery */}
+      {/* Pages / Gallery */}
       {project.pagesInfoArr?.length ? (
         <div className="mb-7">
           <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-5">
