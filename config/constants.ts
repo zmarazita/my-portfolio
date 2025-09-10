@@ -77,7 +77,7 @@ export const SKILLS = [
   "ANSYS FEA",
   "Motion Capture",
   "JMP",
-  "Data Synthesis",
+  "Data synthesis",
 ] as const;
 
 export type ValidSkills = (typeof SKILLS)[number];
