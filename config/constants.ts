@@ -1,83 +1,85 @@
-export type ValidSkills =
-  | "Next.js"
-  | "React"
-  | "GraphQL"
-  | "Nest.js"
-  | "express.js"
-  | "Node.js"
-  | "MongoDB"
-  | "Typescript"
-  | "Javascript"
-  | "HTML 5"
-  | "CSS 3"
-  | "React Native"
-  | "Angular"
-  | "Redux"
-  | "Socket.io"
-  | "Material UI"
-  | "Tailwind CSS"
-  | "AWS"
-  | "Bootstrap"
-  | "Google Auth"
-  | "MySQL"
-  | "Java"
-  | "Databricks"
-  | "Python"
-  | "Docker"
-  | "Kubernetes"
-  | "PostgreSQL"
-  | "Redis"
-  | "Git"
-  | "CI/CD"
-  | "Jenkins"
-  | "FastAPI"
-  | "Django"
-  | "Vue.js"
-  | "Sass"
-  | "Firebase"
-  | "Azure"
-  | "Google Cloud"
-  | "Figma"
-  | "Webpack"
-  | "Jest"
-  | "Cypress"
-  | "Storybook"
-  | "Prisma"
-  | "Supabase"
-  | "Vercel"
-  | "Netlify"
-  | "Three.js"
-  | "WebGL"
-  | "TensorFlow"
-  | "PyTorch"
-  | "Spring Boot"
-  | "Laravel"
-  | "PHP"
-  | "Flutter"
-  | "Dart"
-  | "Flask"
-  | "Django"
-  | "FastAPI"
-  | "SQL"
-  | "NoSQL"
-  | "Framer Motion";
+// config/constants.ts
 
-export type ValidCategory =
-  | "Full Stack"
-  | "Frontend"
-  | "Backend"
-  | "UI/UX"
-  | "Web Dev"
-  | "Mobile Dev"
-  | "3D Modeling";
+// Canonical list of skills (source of truth)
+export const SKILLS = [
+  // --- Existing web/dev skills ---
+  "Next.js",
+  "React",
+  "GraphQL",
+  "Nest.js",
+  "express.js",
+  "Node.js",
+  "MongoDB",
+  "Typescript",
+  "Javascript",
+  "HTML 5",
+  "CSS 3",
+  "React Native",
+  "Angular",
+  "Redux",
+  "Socket.io",
+  "Material UI",
+  "Tailwind CSS",
+  "AWS",
+  "Bootstrap",
+  "Google Auth",
+  "MySQL",
+  "Java",
+  "Databricks",
+  "Python",
+  "Docker",
+  "Kubernetes",
+  "PostgreSQL",
+  "Redis",
+  "Git",
+  "CI/CD",
+  "Jenkins",
+  "FastAPI",
+  "Django",
+  "Vue.js",
+  "Sass",
+  "Firebase",
+  "Azure",
+  "Google Cloud",
+  "Figma",
+  "Webpack",
+  "Jest",
+  "Cypress",
+  "Storybook",
+  "Prisma",
+  "Supabase",
+  "Vercel",
+  "Netlify",
+  "Three.js",
+  "WebGL",
+  "TensorFlow",
+  "PyTorch",
+  "Spring Boot",
+  "Laravel",
+  "PHP",
+  "Flutter",
+  "Dart",
+  "Flask",
+  "SQL",
+  "NoSQL",
+  "Framer Motion",
 
-export type ValidExpType = "Personal" | "Professional";
+  // --- Added mech / data / CAD / CAE skills ---
+  "R",
+  "MATLAB",
+  "SolidWorks",
+  "Siemens NX",
+  "Creo",
+  "Onshape",
+  "Fusion 360",
+  "Rhino",
+  "Grasshopper",
+  "ANSYS FEA",
+  "Motion Capture",
+  "JMP",
+  "Data Synthesis",
+] as const;
 
-export type ValidPages =
-  | "home"
-  | "skills"
-  | "projects"
-  | "experience"
-  | "contact"
-  | "about" 
-  | "resume";
+export type ValidSkills = (typeof SKILLS)[number];
+
+// (Leave your ValidCategory / ValidExpType / ValidPages as-is)
