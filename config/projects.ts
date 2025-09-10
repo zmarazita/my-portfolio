@@ -213,7 +213,7 @@ export const Projects: ProjectInterface[] = [
     id: "openlab-assistive",
     companyName: "Hands-free leg rehabilitation device",
     type: "Professional",
-    category: ["Assistive technology", "Product Design"],
+    category: ["Assistive Technology", "Product Design"],
     shortDescription:
       "Designed and tested an assistive device for hands-free rehabilitation.",
     startDate: new Date("2024-10-01"),
