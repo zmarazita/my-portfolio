@@ -92,4 +92,30 @@ export const SKILLS = [
 
 export type ValidSkills = (typeof SKILLS)[number];
 
+// --- Pages (canonical list) ---
+export const PAGES = [
+  "home",
+  "skills",
+  "projects",
+  "experience",
+  "contact",
+  "about",
+  "resume",
+] as const;
+
+export type ValidPages = (typeof PAGES)[number];
+
+// --- Categories / Experience type (unchanged) ---
+export type ValidCategory =
+  | "Full Stack"
+  | "Frontend"
+  | "Backend"
+  | "UI/UX"
+  | "Web Dev"
+  | "Mobile Dev"
+  | "3D Modeling";
+
+export type ValidExpType = "Personal" | "Professional";
+
+
 // (Leave your ValidCategory / ValidExpType / ValidPages as-is)
