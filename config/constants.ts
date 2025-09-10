@@ -88,6 +88,7 @@ export const SKILLS = [
   "Laser cutting",
   "Textiles",
   "Welding",
+  "Prototyping",
 ] as const;
 
 export type ValidSkills = (typeof SKILLS)[number];
