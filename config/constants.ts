@@ -1,6 +1,6 @@
 // config/constants.ts
 
-// Canonical list of skills (source of truth)
+// --- Canonical list of skills (source of truth) ---
 export const SKILLS = [
   // --- Existing web/dev skills ---
   "Next.js",
@@ -75,12 +75,16 @@ export const SKILLS = [
   "Rhino",
   "Grasshopper",
   "ANSYS FEA",
+  "Ansys",
   "Motion Capture",
   "JMP",
-  "Ansys",
   "Data synthesis",
   "Rapid prototyping",
   "3D printing",
+  "CAD",
+  "CAE",
+  "Woodworking",
+  "Simulation",
   "Design for Additive Manufacturing",
   "CNC Routing",
   "Lathe",
@@ -89,6 +93,11 @@ export const SKILLS = [
   "Textiles",
   "Welding",
   "Prototyping",
+  "Metal casting",
+  "User Studies",
+  "Statistical Modeling",
+  "Anthropometry",
+  "Biomechanics"
 ] as const;
 
 export type ValidSkills = (typeof SKILLS)[number];
@@ -106,7 +115,7 @@ export const PAGES = [
 
 export type ValidPages = (typeof PAGES)[number];
 
-// --- Categories / Experience type (unchanged) ---
+// --- Categories / Experience type ---
 export type ValidCategory =
   | "Full Stack"
   | "Frontend"
@@ -141,12 +150,6 @@ export type ValidCategory =
   | "Metal Casting"
   | "Design for Additive Manufacturing"
   | "Manufacturing"
-  | "Biomechanics"
-  | "Senior Design"
-  | "Product Development"
   | "3D Modeling";
 
 export type ValidExpType = "Personal" | "Professional";
-
-
-// (Leave your ValidCategory / ValidExpType / ValidPages as-is)

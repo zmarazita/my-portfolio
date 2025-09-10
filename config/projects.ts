@@ -21,10 +21,10 @@ export interface ProjectInterface {
   githubLink?: string;
   techStack: ValidSkills[];
   startDate: Date;
-  endDate: Date;
-  companyLogoImg: any;
-  descriptionDetails: DescriptionDetailsInterface;
-  pagesInfoArr: PagesInfoInterface[];
+  endDate: Date | "Present";
+  companyLogoImg: string;
+  descriptionDetails?: DescriptionDetailsInterface;
+  pagesInfoArr?: PagesInfoInterface[];
 }
 
 export const Projects: ProjectInterface[] = [
@@ -35,10 +35,9 @@ export const Projects: ProjectInterface[] = [
     category: ["Product Design", "Ergonomics"],
     shortDescription:
       "Developed adaptive band mechanisms for Apple VisionPro to improve ergonomics across diverse populations.",
-
     startDate: new Date("2022-05-01"),
-    endDate: new Date("2022-09-01"),  
-    techStack: ["Prototyping", "User Studies", "Patent Pending"],
+    endDate: new Date("2022-09-01"),
+    techStack: ["Prototyping", "User Studies", "Anthropometry"],
     companyLogoImg: "/projects/apple/adaptive-band.webp",
     descriptionDetails: {
       paragraphs: [
@@ -59,7 +58,7 @@ export const Projects: ProjectInterface[] = [
     shortDescription:
       "Conducted anthropometric analysis and experimental hardware design to inform hardware sizing and accommodation.",
     startDate: new Date("2024-05-01"),
-    endDate: new Date("2024-09-01"),    
+    endDate: new Date("2024-09-01"),
     techStack: ["Anthropometry", "User Studies", "Prototyping"],
     companyLogoImg: "/projects/apple/face.png",
     descriptionDetails: {
@@ -77,26 +76,24 @@ export const Projects: ProjectInterface[] = [
     id: "senior-design-zurn",
     companyName: "Thermostatic Mixing Valve",
     type: "Professional",
-    category: ["Senior Design", "Product Development"],
+    category: ["Senior Design", "Design"],
     shortDescription:
       "Designed a thermostatic faucet system to deliver consistent water temperature and improve user safety.",
     startDate: new Date("2023-10-01"),
-    endDate: new Date("2024-05-01"),    
-    techStack: ["SolidWorks", "CAD", "Prototyping"],
+    endDate: new Date("2024-05-01"),
+    techStack: ["Solidworks", "CAD", "Prototyping"],
     companyLogoImg: "/projects/Zurn/thermostatic.png",
     descriptionDetails: {
       paragraphs: [
         "As part of my senior design capstone, I worked with Zurn to design and prototype a thermostatic faucet system that maintains consistent outlet temperatures for public restrooms. Our team won first place in the senior design competition.",
       ],
       bullets: [
-        "Developed faucet prototypes in SolidWorks and built test rigs for validation.",
-        "Conducted thermal performance testing to optimize temperature regulation.",
-        "Delivered final design recommendations to Zurn engineering team, winning first place for our porject.",
+        "Developed faucet prototypes in Solidworks and built test rigs for validation.",
+        "Conducted testing and modeling to optimize temperature regulation.",
+        "Delivered final design recommendations to Zurn engineering; project won first place.",
       ],
-      
     },
   },
-
   {
     id: "psu-biomechanics",
     companyName: "Shod vs. Unshod Running Analysis",
@@ -105,43 +102,43 @@ export const Projects: ProjectInterface[] = [
     shortDescription:
       "Analyzed kinematics of shod vs. unshod running using motion capture and force plate data.",
     startDate: new Date("2025-03-01"),
-    endDate: new Date("2025-04-01"),    
-    techStack: ["MATLAB", "Motion Analysis", "Biomechanics"],
+    endDate: new Date("2025-04-01"),
+    techStack: ["MATLAB", "Biomechanics", "Motion Capture"],
     companyLogoImg: "/projects/psu/running.png",
     descriptionDetails: {
       paragraphs: [
         "Course project comparing biomechanics of running with and without shoes.",
       ],
       bullets: [
-        "Captured 3D motion and ground reaction forces using Vicon system and force plates.",
+        "Captured 3D motion and ground reaction forces using a Vicon system and force plates.",
         "Processed motion data in MATLAB to analyze joint angles and forces.",
         "Compared ankle and foot dynamics across shod and unshod conditions.",
       ],
     },
   },
-    {
+  {
     id: "openlab-ai-tool",
-    companyName: "AI-driven Mutlivariate Design Assistant",
+    companyName: "AI-driven Multivariate Design Assistant",
     type: "Professional",
     category: ["AI", "Anthropometry", "Design Tools"],
     shortDescription:
       "Built an AI-driven accommodation tool that translates natural language into ergonomic design recommendations.",
     startDate: new Date("2025-05-01"),
-    endDate: new Date("Present"),  
-    techStack: ["Python", "Streamlit", "ANSUR II"],
+    endDate: "Present",
+    techStack: ["Python", "Anthropometry", "Statistical Modeling"],
     companyLogoImg: "/projects/psu/heat_map.png",
     descriptionDetails: {
       paragraphs: [
-        "Developed a GPT-powered multivariate accommodation tool that interprets product sizing prompts into anthropometry-based design specifications.",
+        "Developed a multivariate accommodation tool that interprets product sizing prompts into anthropometry-based design specifications.",
       ],
       bullets: [
-        "Implemented natural language interface using GPT function calling.",
-        "Integrated ANSUR II datasets for population accommodation analysis.",
+        "Implemented a natural language interface for design query handling.",
+        "Integrated population datasets for accommodation analysis.",
         "Generated visualizations (heatmaps, CDFs) for design recommendations.",
       ],
     },
   },
-    {
+  {
     id: "solar-interstage-duct",
     companyName: "Interstage Duct Redesign",
     type: "Professional",
@@ -149,44 +146,42 @@ export const Projects: ProjectInterface[] = [
     shortDescription:
       "Redesigned the Titan 250 Inter-Stage Duct to reduce cost and improve performance.",
     startDate: new Date("2023-05-01"),
-    endDate: new Date("2023-09-01"),    
-    techStack: ["Ansys FEA", "Thermal Analysis", "CAD"],
+    endDate: new Date("2023-09-01"),
+    techStack: ["ANSYS FEA", "Simulation", "CAD"],
     companyLogoImg: "/projects/Solar_Turbines/titan_250.jpg",
     descriptionDetails: {
       paragraphs: [
         "Engineering project at SolarTurbines focused on redesigning the Titan 250 Inter-Stage Duct to lower costs and improve manufacturability.",
       ],
       bullets: [
-        "Optimized material selection using thermal and structural simulations in Ansys FEA.",
+        "Optimized material selection using thermal and structural simulations in ANSYS FEA.",
         "Eliminated seal strips by redesigning as a non-segmented ring, reducing machining costs.",
         "Improved test cell efficiency through process optimization.",
       ],
     },
   },
-
   {
     id: "charcuterie-board",
     companyName: "Wooden Charcuterie Boards",
     type: "Personal",
     category: ["Woodworking", "Design"],
     shortDescription:
-      "Designed and fabricated a custom wooden charcuterie board using makerspace tools.",
+      "Designed and fabricated custom wooden charcuterie boards using makerspace tools.",
     startDate: new Date("2024-10-01"),
-    endDate: new Date("Present"),    
-    techStack: ["Woodshop", "CNC", "Laser Cutting"],
+    endDate: "Present",
+    techStack: ["Woodworking", "CNC Routing", "Laser cutting"],
     companyLogoImg: "/projects/psu/boards.png",
     descriptionDetails: {
       paragraphs: [
         "A personal design-build project focused on woodworking and aesthetic detailing.",
       ],
       bullets: [
-        "Designed custom charcuterie board shape and detailing.",
+        "Designed custom charcuterie board shapes and detailing.",
         "Used CNC routing, sanding, and finishing techniques.",
         "Laser-engraved custom graphics for personalization.",
       ],
     },
   },
-
   {
     id: "openlab-airplane-seat",
     companyName: "Airplane Seating Study",
@@ -195,7 +190,7 @@ export const Projects: ProjectInterface[] = [
     shortDescription:
       "Conducted experimental study on airplane seat width sufficiency and passenger comfort.",
     startDate: new Date("2024-10-01"),
-    endDate: new Date("2025-05-01"),  
+    endDate: new Date("2025-05-01"),
     techStack: ["User Studies", "Statistical Modeling"],
     companyLogoImg: "/projects/psu/airplane.png",
     descriptionDetails: {
@@ -203,7 +198,7 @@ export const Projects: ProjectInterface[] = [
         "Graduate research study on passenger perceptions of seat width sufficiency, acceptability, and comfort across varied load factors.",
       ],
       bullets: [
-        "Ran 35-trial experimental study with adjustable seat apparatus.",
+        "Ran an experimental study with an adjustable seat apparatus.",
         "Collected sufficiency, acceptability, and comfort ratings across seat widths.",
         "Analyzed effects of demographics and load factor on seat comfort.",
       ],
@@ -211,26 +206,26 @@ export const Projects: ProjectInterface[] = [
   },
   {
     id: "openlab-assistive",
-    companyName: "Hands-free leg rehabilitation device",
+    companyName: "Hands-free Leg Rehabilitation Device",
     type: "Professional",
     category: ["Assistive Technology", "Product Design"],
     shortDescription:
       "Designed and tested an assistive device for hands-free rehabilitation.",
     startDate: new Date("2024-10-01"),
-    endDate: new Date("2024-11-01"),    
-    techStack: ["User Studies", "CAD", "3D Printing"],
+    endDate: new Date("2024-11-01"),
+    techStack: ["User Studies", "CAD", "3D printing"],
     companyLogoImg: "/projects/psu/assistive.png",
     descriptionDetails: {
       paragraphs: [
-        "Class project to develop a hands-free solutation for leg rehabilitation to improve user mobility.",
+        "Class project to develop a hands-free solution for leg rehabilitation to improve user mobility.",
       ],
       bullets: [
-        "Collected user feedback on exhisting rehabilitation devices and conducted competitor analysis.",
+        "Collected user feedback on existing rehabilitation devices and conducted competitor analysis.",
         "Prototyped and tested the device using a 3D-printed assembly.",
       ],
     },
   },
-    {
+  {
     id: "apple-card_fixture",
     companyName: "Test Fixture Machine for Card Deflection",
     type: "Professional",
@@ -238,30 +233,27 @@ export const Projects: ProjectInterface[] = [
     shortDescription:
       "Designed a test fixture to analyze the force required to deflect a credit card.",
     startDate: new Date("2022-04-01"),
-    endDate: new Date("2022-04-05"),    
-    techStack: ["Solidworks", "FEA"],
+    endDate: new Date("2022-04-05"),
+    techStack: ["Solidworks", "CAE"],
     companyLogoImg: "/projects/apple/challenge.png",
     descriptionDetails: {
-      paragraphs: [
-        "Design challenge to create a card test fixture.",
-      ],
+      paragraphs: ["Design challenge to create a card test fixture."],
       bullets: [
-        "Ran deformation calculations and FEA as a baseline for the force requirement.",
-        "Designed the test fixture assembly using Solidworks.",
+        "Ran baseline deformation calculations.",
+        "Built the test fixture assembly in Solidworks.",
       ],
     },
   },
-
   {
     id: "thredlab-amazon",
-    companyName: "Sentiment analysis of reviews to inform product sizing",
+    companyName: "Sentiment Analysis of Reviews to Inform Product Sizing",
     type: "Professional",
     category: ["Sentiment Analysis", "Product Sizing"],
     shortDescription:
       "Developed a sentiment analysis framework for Amazon reviews to inform product sizing decisions.",
     startDate: new Date("2025-01-15"),
-    endDate: new Date("2022-05-01"),    
-    techStack: ["Python", "R", "NLP"],
+    endDate: new Date("2025-05-01"),
+    techStack: ["Python", "R", "Statistical Modeling"],
     companyLogoImg: "/projects/psu/amazon.png",
     descriptionDetails: {
       paragraphs: [
@@ -269,7 +261,7 @@ export const Projects: ProjectInterface[] = [
       ],
       bullets: [
         "Scraped and filtered Amazon reviews for ergonomics-relevant products.",
-        "Performed sentiment analysis in R and Python (syuzhet, NRC lexicons).",
+        "Performed sentiment analysis and exploratory modeling in R and Python.",
         "Correlated sentiment trends with product sizing and accommodation levels.",
       ],
     },
@@ -280,22 +272,40 @@ export const Projects: ProjectInterface[] = [
     type: "Personal",
     category: ["CAD", "Design for Additive Manufacturing"],
     shortDescription:
-      "Designed a phone charging stand that can be mounted to outlets.",
-    startDate: new Date("2025-04-01"),
-    endDate: new Date("2025-03-01"),    
-    techStack: ["3D Printing", "CAD", "Design for Additive Manufacturing"],
+      "Designed a phone charging stand that mounts to outlets.",
+    startDate: new Date("2025-03-01"),
+    endDate: new Date("2025-04-01"),
+    techStack: ["3D printing", "CAD", "Design for Additive Manufacturing"],
     companyLogoImg: "/projects/psu/stand.png",
+    descriptionDetails: {
+      paragraphs: [
+        "Personal project focused on printable geometry and everyday usability.",
+      ],
+      bullets: [
+        "Designed a compact, printable stand for common phone sizes.",
+        "Iterated geometry for cable management and stability.",
+      ],
+    },
   },
-    {
+  {
     id: "cast-mug",
     companyName: "Aluminum Cast PSU Mug",
-    startDate: new Date("2025-04-01"),
     type: "Personal",
     category: ["Metal Casting"],
-    shortDescription:
-      "Cast an aluminum mug at the Penn State foundry lab.",
-    techStack: ["Metal casting"],
+    shortDescription: "Cast an aluminum mug at the Penn State foundry lab.",
+    startDate: new Date("2025-04-01"),
+    endDate: new Date("2025-04-15"),
+    techStack: ["Metal casting", "Prototyping"],
     companyLogoImg: "/projects/psu/mug.png",
+    descriptionDetails: {
+      paragraphs: [
+        "Hands-on foundry experience with mold making and finishing.",
+      ],
+      bullets: [
+        "Prepared mold and runners; poured aluminum safely under supervision.",
+        "Post-processed and finished the casting.",
+      ],
+    },
   },
 ];
 
