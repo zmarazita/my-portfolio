@@ -77,10 +77,17 @@ export const SKILLS = [
   "ANSYS FEA",
   "Motion Capture",
   "JMP",
+  "Ansys",
   "Data synthesis",
   "Rapid prototyping",
-  "3D Printing",
+  "3D printing",
   "Design for Additive Manufacturing",
+  "CNC Routing",
+  "Lathe",
+  "Mill",
+  "Laser cutting",
+  "Textiles",
+  "Welding",
 ] as const;
 
 export type ValidSkills = (typeof SKILLS)[number];
