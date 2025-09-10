@@ -8,7 +8,6 @@ type PagesConfig = {
       title: string;
       description: string;
     };
-    // featuredDescription: string;
   };
 };
 
@@ -18,46 +17,23 @@ export const pagesConfig: PagesConfig = {
     description: "Welcome to my portfolio website.",
     metadata: {
       title: "Home",
-      description: "Naman Barkiya's portfolio website.",
+      description: "Zoe Marazita’s portfolio website.",
     },
   },
   skills: {
     title: "Skills",
+    description: "Key skills that define my professional identity.",
     metadata: {
       title: "Skills",
-      description:
-        "Naman Barkiya's key skills that define his professional identity.",
+      description: "Zoe Marazita’s core technical and engineering skills.",
     },
   },
   projects: {
     title: "Projects",
+    description: "Showcasing impactful projects and technical achievements.",
     metadata: {
       title: "Projects",
-      description: "Naman Barkiya's projects in building web applications.",
-    },
-  },
-  contact: {
-    title: "Contact",
-    description: "Let's connect and explore collaborations.",
-    metadata: {
-      title: "Contact",
-      description: "Contact Naman Barkiya.",
-    },
-  },
-  about: {
-    title: "About Me",
-    description: "A quick intro to who I am and what I do.",
-    metadata: {
-      title: "About",
-      description: "About Zoe Marazita.",
-    },
-  },
-  resume: {
-    title: "Resume",
-    description: "Naman Barkiya's resume.",
-    metadata: {
-      title: "Resume",
-      description: "Naman Barkiya's resume.",
+      description: "Engineering and research projects by Zoe Marazita.",
     },
   },
   experience: {
@@ -65,8 +41,33 @@ export const pagesConfig: PagesConfig = {
     description: "Professional journey and career timeline.",
     metadata: {
       title: "Experience",
+      description: "Zoe Marazita’s professional roles and experience.",
+    },
+  },
+  contact: {
+    title: "Contact",
+    description: "Let’s connect and explore collaborations.",
+    metadata: {
+      title: "Contact",
+      description: "Contact Zoe Marazita.",
+    },
+  },
+  about: {
+    title: "About Me",
+    description:
+      "Background, interests, leadership, and awards.",
+    metadata: {
+      title: "About Me",
       description:
-        "Naman Barkiya's professional journey and experience timeline.",
+        "Learn more about Zoe Marazita — interests, leadership, and awards.",
+    },
+  },
+  resume: {
+    title: "Resume",
+    description: "View and download my resume.",
+    metadata: {
+      title: "Resume",
+      description: "Resume for Zoe Marazita.",
     },
   },
 };
