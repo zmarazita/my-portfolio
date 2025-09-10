@@ -78,6 +78,9 @@ export const SKILLS = [
   "Motion Capture",
   "JMP",
   "Data synthesis",
+  "Rapid prototyping",
+  "3D Printing",
+  "Design for Additive Manufacturing",
 ] as const;
 
 export type ValidSkills = (typeof SKILLS)[number];
