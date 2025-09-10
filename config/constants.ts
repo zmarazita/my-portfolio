@@ -67,7 +67,7 @@ export const SKILLS = [
   // --- Added mech / data / CAD / CAE skills ---
   "R",
   "MATLAB",
-  "SolidWorks",
+  "Solidworks",
   "Siemens NX",
   "Creo",
   "Onshape",
