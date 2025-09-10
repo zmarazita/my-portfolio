@@ -5,7 +5,7 @@ export const siteConfig = {
   authorName: "Zoe Marazita",
   username: "zmarazita",
   description: "Zoe Marazita's portfolio",
-  url: "https://zoemarazita.com",
+  url: "https://zoevmarazita.com",
   links: {
     Linkedin: "https://www.linkedin.com/in/zmarazita/",
     Email: "mailto:zvmarazita@gmail.com",

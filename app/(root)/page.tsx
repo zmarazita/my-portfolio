@@ -20,12 +20,10 @@ import { cn } from "@/lib/utils";
 import profileImg from "@/public/ProfilePic.jpg";
 
 export const metadata: Metadata = {
-  title: `${pagesConfig.home.metadata.title} | Modern Next.js Developer Portfolio Template`,
-  description: `${pagesConfig.home.metadata.description} This open-source Next.js portfolio template is customizable to showcase your skills and projects.`,
-  alternates: {
-    canonical: siteConfig.url,
-  },
+  title: "Home | Zoe's Portfolio",
+  description: "Explore Zoe Marazita’s portfolio in mechanical engineering, ergonomics, and design.",
 };
+
 
 export default function IndexPage() {
   // Structured data for personal portfolio
