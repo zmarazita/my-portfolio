@@ -14,8 +14,8 @@ export const siteConfig = {
   ogImage: "/ProfilePic.jpg",
 
   // Keep these as-is unless you want to swap your favicon/logo too
-  iconIco: "/logo.png",
-  logoIcon: "/logo.png",
+  iconIco: "/logo2.png",
+  logoIcon: "/logo2.png",
 
   keywords: [
     "Zoe Marazita",

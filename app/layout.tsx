@@ -52,9 +52,9 @@ export const metadata = {
     creator: `@${siteConfig.username}`,
   },
 icons: {
-  icon: "/logo.png",
-  shortcut: "/logo.png",
-  apple: "/logo.png",
+  icon: "/logo2.png",
+  shortcut: "/logo2.png",
+  apple: "/logo2.png",
 },
 
   manifest: `${siteConfig.url}/site.webmanifest`,
