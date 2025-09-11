@@ -51,11 +51,12 @@ export const metadata = {
     images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: siteConfig.name }],
     creator: `@${siteConfig.username}`,
   },
-  icons: {
-    icon: siteConfig.iconIco,
-    shortcut: siteConfig.logoIcon,
-    apple: siteConfig.logoIcon,
-  },
+icons: {
+  icon: "/logo.png",
+  shortcut: "/logo.png",
+  apple: "/logo.png",
+},
+
   manifest: `${siteConfig.url}/site.webmanifest`,
   alternates: { canonical: siteConfig.url },
   robots: {

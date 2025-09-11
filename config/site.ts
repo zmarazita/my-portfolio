@@ -14,10 +14,8 @@ export const siteConfig = {
   ogImage: "/ProfilePic.jpg",
 
   // Keep these as-is unless you want to swap your favicon/logo too
-  iconIco:
-    "https://res.cloudinary.com/dbfvcn3f6/image/upload/v1692357384/assets/naman-favicon.ico",
-  logoIcon:
-    "https://res.cloudinary.com/dbfvcn3f6/image/upload/v1692357294/assets/naman-logo.png",
+  iconIco: "/logo.png",
+  logoIcon: "/logo.png",
 
   keywords: [
     "Zoe Marazita",
